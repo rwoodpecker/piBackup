@@ -13,7 +13,7 @@ then
     sync
     sync
     echo "Deleting zero file"
-    #rm $HOME/zero_file
+    rm $HOME/zero_file
     sync
     sync
     echo "Complete."
