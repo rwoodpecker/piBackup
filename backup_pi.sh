@@ -20,8 +20,8 @@ fi
 backup_name+="backup"
 echo $backup_name
 
-spinner diskutil unmountDisk /dev/$disk
 echo "Backing up..."
+diskutil unmountDisk /dev/$disk
 time sudo dd if=/dev/r$disk bs=4m | gzip -9 > $output_dir/pibackup.img.gz
 
 #rename to the current date
