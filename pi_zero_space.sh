@@ -1,6 +1,6 @@
 #!/bin/bash
 
-read -p "Writing zeroes is bad to the sd card; use this sparingly!. Press y to confirm if you want to continue." -n 1 -r
+read -p "Writing zeroes is bad for the sd card; use this sparingly! Press y to confirm if you want to continue." -n 1 -r
 echo
 if [[ $REPLY =~ ^[Yy]$ ]]
 then
