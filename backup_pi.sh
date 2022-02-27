@@ -25,4 +25,4 @@ time sudo dd if=/dev/r$disk bs=4m | gzip -9 > $output_dir/${backup_name}_temp.im
 #rename to the current date
 echo "Finished copying backup, renaming file..."
 mv -n ${output_dir}/${backup_name}_temp.img.gz ${output_dir}/${backup_name}`date +%Y%m%d`.img.gz
-echo "Finished copying backup to ${output_dir}/${backup_name}`date +%Y%m%d`.img.gz"
+echo "Finished copying backup to ${output_dir}/${backup_name}`date +%Y_%m_%d`.img.gz"
