@@ -17,13 +17,14 @@ if [ $# -eq 0 ] ; then
 else
     backup_name=$1
 fi
-backup_name+="pi_backup"
+backup_name+="backup"
 echo $backup_name
 
-diskutil unmountDisk /dev/$disk
+spinner diskutil unmountDisk /dev/$disk
 echo "Backing up..."
-time sudo dd if=/dev/r$disk bs=4m | gzip -9 > $output_dir/piback.img.gz
+time sudo dd if=/dev/r$disk bs=4m | gzip -9 > $output_dir/pibackup.img.gz
 
 #rename to the current date
-echo "compressing completed - now renaming"
+echo "Finished copying backup, renaming file..."
 mv -n $output_dir/piback.img.gz $output_dir/$backup_name`date +%Y%m%d`.img.gz
+echo "Finished copying backup to ${output_dir}/${backup_name}`date +%Y%m%d`.img.gz"
