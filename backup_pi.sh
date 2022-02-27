@@ -18,11 +18,11 @@ else
 fi
 backup_name+="_backup"
 
+sudo diskutil unmountDisk /dev/$disk
 echo "Beginning backup, this will take some time..."
-diskutil unmountDisk /dev/$disk
-time sudo dd if=/dev/r$disk bs=4m | gzip -9 > $output_dir/{backup_name}_temp.img.gz
+time sudo dd if=/dev/r$disk bs=4m | gzip -9 > $output_dir/${backup_name}_temp.img.gz
 
 #rename to the current date
 echo "Finished copying backup, renaming file..."
-mv -n $output_dir/{backup_name}_temp.img.gz $output_dir/$backup_name`date +%Y%m%d`.img.gz
+mv -n ${output_dir}/${backup_name}_temp.img.gz ${output_dir}/${backup_name}`date +%Y%m%d`.img.gz
 echo "Finished copying backup to ${output_dir}/${backup_name}`date +%Y%m%d`.img.gz"
